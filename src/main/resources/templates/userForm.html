@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading" >
+            Insert User
+        </div>
+        <div class="panel-body">
+            <form method="post" th:action="@{saveUser}" th:object="${user}" enctype="multipart/form-data">
+                <div class="form-group" hidden="true">
+                    <label class="control-label">ID</label>
+                    <input class="form-control" type="text" th:field="*{id}"/>
+                    <div th:errors="*{id}" class="alert alert-danger" role="alert">
+                        <span th:errors="*{id}"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Name</label>
+                    <input class="form-control" type="text" th:field="*{name}"/>
+                    <div th:errors="*{name}" class="alert alert-danger" role="alert">
+                        <span th:errors="*{name}"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input class="form-control" type="text" th:field="*{email}"/>
+                    <div th:errors="*{email}" class="alert alert-danger" role="alert">
+                        <span th:errors="*{email}"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date of Birth</label>
+                    <input class="form-control" type="date" th:field="*{dateOfBirth}"/>
+                    <div th:errors="*{dateOfBirth}" class="alert alert-danger" role="alert">
+                        <span th:errors="*{dateOfBirth}"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Photo</label>
+                    <input class="form-control" type="file" name="picture"/>
+                    <div th:errors="*{photo}" class="alert alert-danger" role="alert">
+                        <span th:errors="*{photo}" ></span>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-primary" value="Save"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
